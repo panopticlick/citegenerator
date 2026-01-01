@@ -1,0 +1,3 @@
+packages:
+  - "citegenerator-api"
+  - "citegenerator-web"

@@ -1,0 +1,15 @@
+{
+  "name": "citegenerator-monorepo",
+  "private": true,
+  "packageManager": "pnpm@9.15.1",
+  "scripts": {
+    "dev": "concurrently -n api,web -c green,blue \"PORT=3020 pnpm -C citegenerator-api dev\" \"pnpm -C citegenerator-web dev\"",
+    "build": "pnpm -C citegenerator-api build && pnpm -C citegenerator-web build",
+    "lint": "pnpm -C citegenerator-api lint && pnpm -C citegenerator-web lint",
+    "test": "pnpm -C citegenerator-api test && pnpm -C citegenerator-web test",
+    "typecheck": "pnpm -C citegenerator-api typecheck && pnpm -C citegenerator-web typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "9.1.0"
+  }
+}

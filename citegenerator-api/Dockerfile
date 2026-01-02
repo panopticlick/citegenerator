@@ -5,12 +5,12 @@ WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@9.15.1 --activate
 
 FROM base AS deps
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile --prod
+COPY package.json ./
+RUN pnpm install --prod
 
 FROM base AS builder
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+COPY package.json ./
+RUN pnpm install
 COPY . .
 RUN pnpm build
 
